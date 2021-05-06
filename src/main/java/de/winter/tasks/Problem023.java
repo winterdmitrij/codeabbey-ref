@@ -48,7 +48,6 @@ public class Problem023 extends TaskSolution{
 			}
 			System.out.println( length + "; " + this.pass + ": " + this.inputList + " - " + this.swap);
 			length--;
-			
 		}
 		
 		// Checksum
@@ -61,7 +60,7 @@ public class Problem023 extends TaskSolution{
 			if ( this.checksum % LIMIT > 0 ) {
 				this.checksum %= LIMIT;
 			}
-		}		
+		}
 	}
 
 	

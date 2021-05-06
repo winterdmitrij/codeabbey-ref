@@ -1,12 +1,30 @@
 package de.winter.tasks;
 
-public class Problem001 {
+import de.winter.services.TaskSolution;
 
-	public static void main(String[] args) {
-		int a = 10905, b = 4758;
+/** Sum "A+B"
+ * 
+ * @author dmitrij
+ *
+ */
+public class Problem001 extends TaskSolution{
+	int a, b, result;
+
+	@Override
+	public void input(String str) {
+		String[] tmpArr = str.split(" ");
 		
-		System.out.println(a + b);
-
+		this.a = Integer.parseInt( tmpArr[0] );
+		this.b = Integer.parseInt( tmpArr[1] );
 	}
 
+	@Override
+	public void process() {
+		this.result = this.a + this.b;
+	}
+
+	@Override
+	public void output() {
+		System.out.println( this.result );
+	}
 }
