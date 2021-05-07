@@ -42,11 +42,6 @@ public class Problem034 extends TaskSolution{
 	
 	@Override
 	public void output() {
-		//System.out.println(this.inputListA);
-		//System.out.println(this.inputListB);
-		//System.out.println(this.inputListC);
-		//System.out.println(this.inputListD);
-		
 		for ( double item : this.result )
 			System.out.print(item + " ");
 	}
@@ -61,14 +56,11 @@ public class Problem034 extends TaskSolution{
 			z = (long) (x * 10000000);
 			x = ( xMin + xMax ) / 2;
 			i++;
-			//z = ( a * x + b * Math.sqrt( Math.pow(x, 3) ) - c * Math.exp(-x / 50) - d );
-			if ( ( a * x + b * Math.sqrt( Math.pow(x, 3) ) - c * Math.exp(-x / 50) - d ) > 0 ) {
+
+			if ( ( a * x + b * Math.sqrt( Math.pow(x, 3) ) - c * Math.exp(-x / 50) - d ) > 0 )
 				xMax = x;
-			}
 			else
 				xMin = x;
-			System.out.println(x + ":  " + z);
-			
 		}
 		
 		return x;

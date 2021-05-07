@@ -12,8 +12,9 @@ import de.winter.services.TaskSolution;
 public class Problem019 extends TaskSolution{
 	List<String> inputList = new ArrayList<String>();
 	List<Boolean> result = new ArrayList<Boolean>();
-	char[] brackets = new char[] { '(', ')', '[', ']', '{', '}', '<', '>' };
-	//String brackets = "()[]{}<>";
+	List<Character> openedBrackets = new ArrayList<Character>();
+	List<Character> closedBrackets = new ArrayList<Character>();
+	String brackets = "()[]{}<>";
 	
 	
 	@Override
@@ -22,8 +23,15 @@ public class Problem019 extends TaskSolution{
 		
 		for ( String item : tmpArr )
 			this.inputList.add(item);
+		
+		for ( int i = 0; i < brackets.length(); i++ ) {
+			if ( i % 2 == 0 )
+				this.openedBrackets.add( brackets.charAt(i) );
+			else
+				this.closedBrackets.add( brackets.charAt(i) );
+		}
 	}
-
+	
 	
 	@Override
 	public void process() {
@@ -35,34 +43,44 @@ public class Problem019 extends TaskSolution{
 	
 	@Override
 	public void output() {
-		System.out.println(this.inputList);
-		System.out.println(this.result);
+//		System.out.println(this.inputList);
+		
+		for ( boolean item : this.result )
+			System.out.print( ( item ? 1 : 0 ) + " ");
 	}
 
 	
 	public boolean isMatchingBrackets(String string) {
-		boolean marke = true;
-		char bracket = 'a';
+		List<Character> tmpList = new ArrayList<Character>();
+		int index;
+		char searchedChar = '0', curChar;
+//		System.out.println(string.length());
 		
 		for ( int i = 0; i < string.length(); i++ ) {
-			System.out.print( string.charAt(i) + " ");
-			//for (int j = 0; j < this.brackets.length; i++) {
-				//if ( this.brackets[j] == string.charAt(i)) {
-					//bracket = this.brackets[j];
-					//System.out.print(bracket);
-					//marke = false;
-				//}
-				//else if (this.brackets[j] == string.charAt(i) && j % 2 == 1 && bracket != '0' ) {
-				//	marke = true;
-				//}
-				//else if (this.brackets[j] == string.charAt(i) && j % 2 == 1 && bracket == '0' ) {
-				//	return false;
-				//}
-				//else
-				//	isMatchingBrackets(string, i);
-			//}
+			curChar = string.charAt(i);
+			if ( this.openedBrackets.contains(curChar) ) {
+				tmpList.add( curChar );
+				index = this.openedBrackets.indexOf(curChar);
+				searchedChar = this.closedBrackets.get(index);
+//				System.out.println(i + ". aktBS: " + curChar + ",\t-> Array: " + tmpList + ".\tGesucht: " + searchedChar);
+			}
+			else if ( this.closedBrackets.contains(curChar) && curChar == searchedChar ) {
+				
+				tmpList.remove( tmpList.size() - 1 );
+				
+				if ( !tmpList.isEmpty() ) {
+					index = this.openedBrackets.indexOf( tmpList.get( tmpList.size() - 1 ) );
+					searchedChar = this.closedBrackets.get(index);
+				}
+				else
+					searchedChar = '0';
+//				System.out.println(i + ". aktBS: " + curChar + ",\t<- Array: " + tmpList+ ".\tGesucht: " + searchedChar);
+			}
+			else if ( this.closedBrackets.contains(curChar) && curChar != searchedChar ){
+				return false;
+			}
 		}
-		
-		return marke;
+//		System.out.println(tmpList.size());
+		return tmpList.isEmpty() ? true : false;
 	}
 }
