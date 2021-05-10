@@ -7,6 +7,7 @@ import de.winter.tasks.Problem023;
 import de.winter.tasks.Problem032;
 import de.winter.tasks.Problem033;
 import de.winter.tasks.Problem034;
+import de.winter.tasks.Problem039;
 
 public class Application {
 
@@ -23,23 +24,10 @@ public class Application {
 	}
 	
 	public void run() {
-		String inputData = "{t[<%>((y)x) <+>]}<y><z>[]<v[*(u)<{t}{z}d>[b]][v]{+}>\n"
-				+ "[<u>(d)((v)v)((^)^){%}[-]]< z][u]%{f(+)}{[z]%}>\n"
-				+ "{{{g}{y}{v}g}<w><{x}e[[u[/]]/]>([</>v]c)[c]b}{w}<(%)[f<a>]>\n"
-				+ "<(-)z<c><d>{f}(g){z}>([f<f>{h}{t}]<%> )(u)<>{e}(<e([v]a)>- <w>\n"
-				+ "[{[^][/[v[ < ><u>]]]t}{g}]<u{f}>[v]{+}<*>(z)<c \n"
-				+ "[f]([ ]+)(f(w))(v)(h ({v}[[([d]t)/] ])<(^)<d>^>(e)\n"
-				+ "(-)[/]<x>[(<f><u>f){ }(a){[{g}([+]w)^]{y}<< >z>e}]\n"
-				+ "{+}[[{<z>d}b(w{c})](%)c[g]<f(y{ })<<a>u((v){ }[]]u)[<e>( )d]>>\n"
-				+ "[(e)(-)c[{*}a{x}<g[(b))[x]]>]<t>]([a]c)(*[+]\n"
-				+ "[{v})](/{c}[^])[{-}(%)[{h{{[[e]a]/}<g>d}} ]]<w>{b}(v [t<y>][h]\n"
-				+ "[^]<{b}v>((/)<x>d){{*[e]}e{w}}([c]{t}[x][ ][f]{(f)[+]a})(y{d})(b)\n"
-				+ "()(u{[+]y})<<a>f>h}{v}>{u<w{</>[{(-) }({h}c)a]}\n"
-				+ "<b><u><{y}[%(+)]a( y>[f<h>(/)]e)>[^][(u)[t]]( [f])\n"
-				+ "<{d}[b]<x><g>[{h}e{z}]<b>v[g]>((z)((/)(z)%<<^>[  x>)a)<< >>\n"
-				+ "{u}{%}{(<(e)b>(+)^({ }b){a{-}[ ]}(-))[-] }[{*}<[/]%>{d}{b}z</>]()";
+		String inputData = "JOOG 99 99 99 99 99 99 99 101 101 101 101 101 101 101\n"
+				+ "GOLD 95 105 95 105 95 105 95 105 95 105 95 105 95 105\n";
 		
-		Problem019 x = new Problem019();
+		Problem039 x = new Problem039();
 		
 		x.input(inputData);
 		x.process();
